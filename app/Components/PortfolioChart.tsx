@@ -39,7 +39,7 @@ export default function PortfolioChart({
             data={data}
             cx="50%"
             cy="50%"
-            innerRadius={80} // ทำให้เป็นกราฟโดนัท
+            innerRadius={80} 
             outerRadius={110}
             paddingAngle={5}
             dataKey="value"

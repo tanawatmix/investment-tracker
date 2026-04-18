@@ -28,7 +28,7 @@ async function getExchangeRate() {
       next: { revalidate: 3600 } 
     });
     const data = await res.json();
-    return data.rates.THB || 36.50; // ถ้าดึงไม่ได้ให้สมมติเป็น 36.50 บาท/ดอลลาร์
+    return data.rates.THB
   } catch (error) {
     console.error('ดึงเรทเงินไม่สำเร็จ:', error);
     return 36.50;
