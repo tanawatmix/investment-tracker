@@ -10,12 +10,10 @@ export default function DeleteButton({ id }: { id: string }) {
   const [isDeleting, setIsDeleting] = useState(false)
 
   const handleDelete = async () => {
-    // โชว์ Popup ยืนยันก่อนลบ เผื่อผู้ใช้เผลอกดโดน
     if (!window.confirm('คุณแน่ใจหรือไม่ว่าต้องการลบรายการนี้?')) return
 
     setIsDeleting(true)
 
-    // สั่งลบข้อมูลใน Supabase โดยอ้างอิงจาก id ของแถวนั้น
     const { error } = await supabase
       .from('transactions')
       .delete()
@@ -25,7 +23,6 @@ export default function DeleteButton({ id }: { id: string }) {
       alert('เกิดข้อผิดพลาดในการลบ: ' + error.message)
       setIsDeleting(false)
     } else {
-      // ลบสำเร็จ สั่งให้ Next.js โหลดข้อมูลในตารางใหม่
       router.refresh()
     }
   }
